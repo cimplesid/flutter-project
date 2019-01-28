@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'LOGIN.dart';
 import 'list.dart';
 import 'home.dart';
+import 'ui/profile.dart';
 
 void main() => runApp(awesomeapp());
 
@@ -24,6 +25,7 @@ class awesomeapp extends StatelessWidget {
     '/home': (BuildContext context) => new Homie(),
     '/login' : (BuildContext context) => new Login(),
     '/list' : (BuildContext context) => new Lists(),
+    '/profile' : (BuildContext context) => new Profile(),
     
   },
    // routes: routes,

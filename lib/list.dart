@@ -8,9 +8,11 @@ class Lists extends StatelessWidget {
   final String list = 's';
    buildbody(BuildContext context){
   for ( var i = 1 ; i < 5; i++ ) {
-   ChatItemModel chatItem = ChatHelper.getChatItem(i);
+   ChatItemModel chatItem = ChatHelper.getChatItem(0);
+   //ChatItemModel chatItem1 = ChatHelper.getChatItem(1);
 
-        return Column(
+        return
+         Column(
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -80,7 +82,7 @@ class Lists extends StatelessWidget {
             ListTile(
                title: Text("Home"),
               leading: Icon(Icons.home),
-              onTap: (){},),
+              onTap: (){Navigator.of(context).pushNamed('/home');},),
            ListTile(title: Text("List"),
            leading: Icon(Icons.menu),
               onTap: (){  Navigator.of(context).pushNamed('/list');},),
@@ -90,7 +92,7 @@ class Lists extends StatelessWidget {
               onTap: (){},),
            ListTile(title: Text("Profile"),
            leading: Icon(Icons.person),
-              onTap: (){},),
+              onTap: (){Navigator.of(context).pushNamed('/profile');},),
                ListTile(title: Text("Logout"),
            leading: Icon(Icons.airline_seat_legroom_reduced),
               onTap: (){  Navigator.of(context).pushNamed('/login');
@@ -105,7 +107,7 @@ class Lists extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(title: Text("Awesome app"), centerTitle: true,backgroundColor: Colors.redAccent,actions: <Widget>[
+      appBar: AppBar(title: Text("List"), centerTitle: true,backgroundColor: Colors.redAccent,actions: <Widget>[
         new IconButton(
           icon: new Icon(Icons.favorite),
         onPressed: () => print("liked"),

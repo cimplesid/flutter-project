@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 //import 'package:path/path.dart';
-//import 'LOGIN.dart';
+import 'hometheme.dart';
 class Homie extends StatelessWidget {
  // static String tag => 'login-page';
-
+ //DateTime now = DateTime.now();
+//String formattedDate = DateFormat('kk:mm:ss \n EEE d MMM').format(now);
  
 
   Widget buildrawer(BuildContext context){
@@ -23,7 +24,7 @@ class Homie extends StatelessWidget {
               
               title: Text("Home"),
               leading: Icon(Icons.home),
-              onTap: (){},),
+              onTap: (){Navigator.of(context).pushNamed('/list');},),
            ListTile(title: Text("List"),
            leading: Icon(Icons.menu),
               onTap: (){  Navigator.of(context).pushNamed('/list');},),
@@ -33,7 +34,7 @@ class Homie extends StatelessWidget {
               onTap: (){},),
            ListTile(title: Text("Profile"),
            leading: Icon(Icons.person),
-              onTap: (){},),
+              onTap: (){Navigator.of(context).pushNamed('/profile');},),
                ListTile(title: Text("Logout"),
            leading: Icon(Icons.airline_seat_legroom_reduced),
               onTap: (){  Navigator.of(context).pushNamed('/login');
@@ -50,10 +51,10 @@ class Homie extends StatelessWidget {
    
       return Scaffold(
 
-      appBar: AppBar(title: Text("Awesome app"), centerTitle: true,backgroundColor: Colors.redAccent,actions: <Widget>[
+      appBar: AppBar(title: Text("Home"), centerTitle: true,backgroundColor: Colors.redAccent,actions: <Widget>[
         new IconButton(
           icon: new Icon(Icons.favorite),
-        onPressed: () => print("liked"),
+        onPressed: () => Navigator.of(context).pushNamed('/profile'),
         )
         ],
         ),
@@ -61,56 +62,64 @@ class Homie extends StatelessWidget {
         elevation: 5.0,
         child: buildrawer(context),
       ),
-      
-      body:  Container(
-        padding: EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: new Container(
+      padding: new EdgeInsets.all(8.0),
+      height: 250.0,
+      child: new Stack(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Icon(Icons.note),
-              SizedBox(width: 10.0,),
-              Text("Welcome to Lesson 2",
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold
-                ),
-              )
-            ],
-          ),
-          SizedBox(height: 20.0,),
-          Text("Here we will learn to add sider drawer to our app"),
-          SizedBox(height: 10.0,),
-          RichText(
-            text: TextSpan(
-              
-              
-            ),
-            textAlign: TextAlign.justify,
-          ),
-          SizedBox(height: 20.0,),
-          Text("Above I am showing how we can use RichText widget to show text with multiple styles."),
-          SizedBox(height: 20.0,),
-          Text("In this lesson I am also demonstrating how we can break down different tasks in a widget into multiple functions to make code more manageable."),
-          SizedBox(height: 20.0,),
-          Text("Using the button below, you can open the drawer navigation. It is here to demonstrate how to programmatically open drawer."),
-          SizedBox(height: 10.0,),
-          Builder(
-            builder: (BuildContext context) => RaisedButton(
-              color: Colors.red,
-              textColor: Colors.white,
-              child: Text("Open Drawer"),
-              onPressed: () => Scaffold.of(context).openDrawer(),
-            )
-          ),
-          
+          backgroundImage,
+          new Container(
+            padding: new EdgeInsets.all(10.0),
+          child: new Align(
+              alignment: Alignment.bottomLeft,
+              child: onTopContent),),
         ],
       ),
     )
-  
-         
       );
+      
+     
+      
     
   }
+   final backgroundImage = new Container(
+      decoration: new BoxDecoration(
+        image: new DecorationImage(
+          colorFilter: new ColorFilter.mode(
+              Colors.black.withOpacity(0.6),
+              BlendMode.luminosity),
+          image: new NetworkImage("https://4.bp.blogspot.com/-L9CtV6gR8GI/WtgKA619aEI/AAAAAAAAF9c/CubtyZE94o076qCShJN_D2bdNiHoeIRxACEwYBhgL/s1600/cool%2Bprofile%2Bimages.png"),
+          fit: BoxFit.cover,
+        ),
+      ),
+  );
+
+
+
+  final onTopContent = new Container(
+    height: 80.0,
+    child: new Column(mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        new Text("Trending this week",
+        style: bigHeaderTextStyle),
+
+        new Text("The most popular restaurnts in town this week",
+          style: descTextStyle),
+        //new Container(),
+        new Container(
+          height: 2.0,
+          width: 150.0,
+          color: Colors.redAccent,
+        ),
+     
+        new Text("2019/1/29 18:54:21",
+          style: footerTextStyle),// new Text("2019/1/29 18:54:21",);
+          //style: footerTextStyle),
+        //new Container()
+      ],
+    ),
+  );
+  //var now = new DateTime.now();
 }
