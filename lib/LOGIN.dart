@@ -9,7 +9,7 @@ class Login extends StatelessWidget {
  
 
 
-  Widget _buildPageContent() {
+  Widget _buildPageContent(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20.0),
       color: Colors.grey.shade800,
@@ -73,7 +73,7 @@ class Login extends StatelessWidget {
   @override
     Widget build(BuildContext context) {
       return Scaffold(
-        body: _buildPageContent(),
-      );
+        body: 
+        _buildPageContent(context));
     }
 }

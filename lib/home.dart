@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
+//import 'package:path/path.dart';
+//import 'LOGIN.dart';
 class Homie extends StatelessWidget {
  // static String tag => 'login-page';
 
  
 
-  Widget buildrawer(){
+  Widget buildrawer(BuildContext context){
     return Drawer(
         
         child: ListView(
@@ -23,9 +24,9 @@ class Homie extends StatelessWidget {
               title: Text("Home"),
               leading: Icon(Icons.home),
               onTap: (){},),
-           ListTile(title: Text("Menu"),
+           ListTile(title: Text("List"),
            leading: Icon(Icons.menu),
-              onTap: (){},),
+              onTap: (){  Navigator.of(context).pushNamed('/list');},),
            ListTile(
              title: Text("Favourite"),
            leading: Icon(Icons.favorite),
@@ -33,7 +34,12 @@ class Homie extends StatelessWidget {
            ListTile(title: Text("Profile"),
            leading: Icon(Icons.person),
               onTap: (){},),
-            
+               ListTile(title: Text("Logout"),
+           leading: Icon(Icons.airline_seat_legroom_reduced),
+              onTap: (){  Navigator.of(context).pushNamed('/login');
+},),
+           // Navigator.of(context).pop();
+
 
           ],
         ),
@@ -53,7 +59,7 @@ class Homie extends StatelessWidget {
         ),
         drawer: Drawer(
         elevation: 5.0,
-        child: buildrawer(),
+        child: buildrawer(context),
       ),
       
       body:  Container(
