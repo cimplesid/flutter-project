@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 
-class List extends StatelessWidget {
+class Lists extends StatelessWidget {
   Widget buildrawer(){
     return Drawer(
         

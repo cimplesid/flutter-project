@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 import 'home.dart';
+import 'main.dart';
 
 class Login extends StatelessWidget {
+  //static get tag => null;
+
+ 
+
 
   Widget _buildPageContent() {
     return Container(
@@ -12,7 +18,7 @@ class Login extends StatelessWidget {
           Column(
             children: <Widget>[
               SizedBox(height: 50,),
-              Container(width: 200, child: Image.asset('assets/img/rocket.png'),),
+              Container(width: 200, child: Image.asset('aa/dd.PNG'),),
               SizedBox(height: 50,),
               ListTile(
                 title: TextField(
@@ -42,9 +48,11 @@ class Login extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: RaisedButton(
+ child: RaisedButton(
                       onPressed: (){
-                        Homie();
+                        Navigator.of(context).pushNamed('/home');
+//Navigator.of(Context).pushNamed(Login.tag);
+//Navigator.push(context, MaterialPageRoute(builder: (context)=> Homie()));
 
                       },
                       color: Colors.cyan,
@@ -54,7 +62,7 @@ class Login extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 40,),
-              Text('Forgot your password?', style: TextStyle(color: Colors.grey.shade500),)
+            //  Text('Forgot your password?', style: TextStyle(color: Colors.grey.shade500),)
             ],
           ),
         ],
